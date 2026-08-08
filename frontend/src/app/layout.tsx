@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Caveat, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ClientLayout } from "@/components/layout/ClientLayout";
 
-const caveat = Caveat({
-  variable: "--font-hand",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -16,12 +16,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NADrop - Prediction Markets as Fast as Swiping",
+  title: "SwipePredict - Prediction Markets as Fast as Swiping",
   description:
     "Predict yes/no outcomes for short events, stake tokens, and get instant on-chain settlement through Monad testnet and x402 protocol.",
   keywords: ["prediction market", "monad", "x402", "web3", "swipe"],
   openGraph: {
-    title: "NADrop",
+    title: "SwipePredict",
     description:
       "Prediction markets as fast as swiping, with instant on-chain settlement.",
     type: "website",
@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${caveat.variable} ${jetbrainsMono.variable} h-full`}
+      className={`${inter.variable} ${jetbrainsMono.variable} h-full`}
       suppressHydrationWarning
     >
       <body

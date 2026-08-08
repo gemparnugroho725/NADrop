@@ -72,32 +72,18 @@ export function useMarkets(options: UseMarketsOptions = {}) {
         throw new Error(data.details ?? data.error ?? "Failed to load markets");
       }
 
-      let swipedIds: string[] = [];
-      try {
-        if (typeof window !== "undefined") {
-          swipedIds = JSON.parse(localStorage.getItem("nadrop.swiped_markets") || "[]");
-        }
-      } catch (e) {}
-
       const nextMarkets = (data.markets ?? [])
         .map(toUiMarket)
         .filter(
           (market) =>
-            !swipedIds.includes(market.id) &&
-            (statusFilter === "all" ||
-              (statusFilter === "active" && market.status === "active") ||
-              (statusFilter === "closed" && market.status !== "active"))
+            statusFilter === "all" ||
+            (statusFilter === "active" && market.status === "active") ||
+            (statusFilter === "closed" && market.status !== "active"),
         );
 
       if (!cancelled) {
-        setMarkets((prev) => {
-          setCurrentIndex((idx) => {
-            const currentId = prev[idx]?.id;
-            const newIndex = currentId ? nextMarkets.findIndex((m) => m.id === currentId) : 0;
-            return newIndex !== -1 ? newIndex : 0;
-          });
-          return nextMarkets;
-        });
+        setMarkets(nextMarkets);
+        setCurrentIndex((index) => Math.min(index, nextMarkets.length));
       }
     }
 

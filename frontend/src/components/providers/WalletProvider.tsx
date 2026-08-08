@@ -22,8 +22,8 @@ interface WalletContextType {
 const WalletContext = createContext<WalletContextType>({
   isConnected: false,
   address: null,
-  connect: () => {},
-  disconnect: () => {},
+  connect: () => { },
+  disconnect: () => { },
   ready: false,
 });
 
@@ -109,7 +109,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
         appearance: {
           theme: "light",
           accentColor: "#0E9F6E",
-          landingHeader: "Login ke NADrop",
+          landingHeader: "Login ke SwipePredict",
           loginMessage: "Pakai email Privy atau MetaMask.",
           walletList: ["detected_ethereum_wallets"],
           walletChainType: "ethereum-only",

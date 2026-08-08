@@ -31,17 +31,6 @@ export function useSwipePredict() {
 
   const onSwipe = useCallback(
     (market: Market, direction: SwipeDirection) => {
-      try {
-        const key = "nadrop.swiped_markets";
-        const swiped = JSON.parse(localStorage.getItem(key) || "[]");
-        if (!swiped.includes(market.id)) {
-          swiped.push(market.id);
-          localStorage.setItem(key, JSON.stringify(swiped));
-        }
-      } catch (e) {
-        console.error("Failed to save swipe history", e);
-      }
-
       if (direction === "up") {
         setSettlementState({
           phase: "idle",

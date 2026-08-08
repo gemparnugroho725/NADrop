@@ -241,39 +241,39 @@ export const POST =
   process.env.X402_MODE === "mock"
     ? mockPost
     : withX402<unknown>(
-        paidPost,
-        {
-          accepts: {
-            scheme: "exact",
-            payTo: process.env.PAY_TO_ADDRESS ?? "",
-            price: {
-              amount: STAKE_AMOUNT.toString(),
-              asset: MOCK_USDC_ADDRESS,
-              extra: {
-                name: "Mock USDC",
-                version: "1",
-                assetTransferMethod: "permit2",
-                permit2Address: "0x000000000022d473030f116ddee9f6b43ac78ba3",
-                x402ExactPermit2Proxy:
-                  "0x402085c248EeA27D92E8b30b2C58ed07f9E20001",
-              },
+      paidPost,
+      {
+        accepts: {
+          scheme: "exact",
+          payTo: process.env.PAY_TO_ADDRESS ?? "",
+          price: {
+            amount: STAKE_AMOUNT.toString(),
+            asset: MOCK_USDC_ADDRESS,
+            extra: {
+              name: "Mock USDC",
+              version: "1",
+              assetTransferMethod: "permit2",
+              permit2Address: "0x000000000022d473030f116ddee9f6b43ac78ba3",
+              x402ExactPermit2Proxy:
+                "0x402085c248EeA27D92E8b30b2C58ed07f9E20001",
             },
-            network: MONAD_NETWORK,
-            maxTimeoutSeconds: 120,
           },
-          description: "NADrop 1 mUSDC market stake",
-          mimeType: "application/json",
-          serviceName: "NADrop",
-          unpaidResponseBody: () => ({
-            contentType: "application/json",
-            body: {
-              error: "Payment Required",
-              amount: STAKE_AMOUNT.toString(),
-              currency: "USDC",
-              network: "monad-testnet",
-              facilitator: FACILITATOR_URL,
-            },
-          }),
+          network: MONAD_NETWORK,
+          maxTimeoutSeconds: 120,
         },
-        resourceServer,
-      );
+        description: "SwipePredict 1 mUSDC market stake",
+        mimeType: "application/json",
+        serviceName: "SwipePredict",
+        unpaidResponseBody: () => ({
+          contentType: "application/json",
+          body: {
+            error: "Payment Required",
+            amount: STAKE_AMOUNT.toString(),
+            currency: "USDC",
+            network: "monad-testnet",
+            facilitator: FACILITATOR_URL,
+          },
+        }),
+      },
+      resourceServer,
+    );

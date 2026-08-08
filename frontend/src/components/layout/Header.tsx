@@ -9,7 +9,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           {/* Logo / Brand */}
           <h1 className="text-lg font-bold font-display text-[var(--color-ink)] tracking-tight">
-            NA<span className="text-[var(--color-yes)]">Drop</span>
+            Swipe<span className="text-[var(--color-yes)]">Predict</span>
           </h1>
         </div>
 
