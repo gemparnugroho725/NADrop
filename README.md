@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://via.placeholder.com/150x150?text=NADrop+Logo" alt="NADrop Logo" width="150" height="150" />
+  <img src="frontend/public/logo.png" alt="NADrop Logo" width="300" />
   
   # 🎯 NADrop
 
@@ -33,6 +33,7 @@ By combining a playful **Hand-Drawn & Analog Skeuomorphic** aesthetic with the b
 - **🔥 Tinder-Style Swiping UI:** Predict outcomes effortlessly. No complex trading charts or order books—just read the market card and swipe to stake your position.
 - **🎨 Whimsical & Hand-Drawn Aesthetic:** Breaking away from dark, corporate "cyberpunk" SaaS trends. NADrop features a refreshing analog design with wobbly lines, parchment textures, and organic ink colors.
 - **⚡ Instant On-Chain Settlement:** Powered by the x402 protocol, market resolutions and payouts are settled on-chain in less than a second, with zero manual claiming friction.
+- **🛡️ Anti-Bot On-Chain Data:** By requiring a real on-chain stake for every swipe, we make it economically impossible for bots and buzzers to manipulate the results, guaranteeing 100% valid public opinion data.
 - **🛡️ Frictionless Onboarding:** Integrated with **Privy**, users can seamlessly log in using just their email or connect directly via MetaMask. No seed phrases required for newcomers.
 - **🌐 Monad Ecosystem Native:** Built to take full advantage of Monad's parallel execution, delivering a lag-free, highly responsive prediction experience.
 
