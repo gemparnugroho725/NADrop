@@ -7,7 +7,6 @@
   
   [![Next.js](https://img.shields.io/badge/Next.js-16.3.0-black?logo=next.js)](https://nextjs.org/)
   [![Monad](https://img.shields.io/badge/Network-Monad_Testnet-blueviolet)](https://monad.xyz)
-  [![Netlify Status](https://api.netlify.com/api/v1/badges/your-site-id/deploy-status)](https://nadrop.netlify.app)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   [Live Demo](https://nadrop.netlify.app) • [Documentation](#) • [Smart Contracts](#)
