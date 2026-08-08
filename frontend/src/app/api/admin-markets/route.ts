@@ -32,6 +32,7 @@ export async function GET() {
         totalNo: bigint;
         resolved: boolean;
         outcome: boolean;
+        deadline: number;
       }
     >();
 
@@ -51,6 +52,7 @@ export async function GET() {
           totalNo: BigInt(0),
           resolved: snapshot?.resolved ?? false,
           outcome: snapshot?.outcome ?? false,
+          deadline: Number(snapshot?.deadline ?? 0) * 1000,
         };
 
       if (record.side) {

@@ -24,7 +24,28 @@ type MarketRow = {
   totalNo: string;
   resolved: boolean;
   outcome: boolean;
+  deadline?: number;
 };
+
+function Countdown({ deadline }: { deadline: number }) {
+  const [timeLeft, setTimeLeft] = useState(deadline - Date.now());
+
+  useEffect(() => {
+    if (timeLeft <= 0) return;
+    const timer = setInterval(() => {
+      setTimeLeft(deadline - Date.now());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [deadline, timeLeft]);
+
+  if (timeLeft <= 0) {
+    return <span className="text-[var(--color-yes)]">Ready to Resolve</span>;
+  }
+
+  const m = Math.floor(timeLeft / 60000);
+  const s = Math.floor((timeLeft % 60000) / 1000);
+  return <span className="text-[var(--color-live)] font-bold">Ends in {m}m {s}s</span>;
+}
 
 async function readJson(response: Response) {
   const text = await response.text();
@@ -115,6 +136,7 @@ export default function AdminPage() {
           totalNo: "0",
           resolved: false,
           outcome: false,
+          deadline: deadline * 1000,
         },
         ...current,
       ]);
@@ -305,7 +327,7 @@ export default function AdminPage() {
                 <span>
                   {market.resolved
                     ? `resolved: ${market.outcome ? "YES" : "NO"}`
-                    : "waiting for verification"}
+                    : market.deadline ? <Countdown deadline={market.deadline} /> : "waiting for verification"}
                 </span>
               </div>
               <h3 className="mb-4 font-display text-xl font-bold text-[var(--color-ink)]">
